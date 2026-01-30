@@ -1,12 +1,11 @@
-// 1. Initialize Map
+// 1. Setup the Map with a clean national view
         var map = L.map('map', {
-            zoomControl:false, maxZoom:28, minZoom:3, 
+            zoomControl:false, maxZoom:28, minZoom:3,
             maxBounds: [[24.39, -124.84], [49.38, -66.93]] 
         }).setView([39.8283, -98.5795], 4);
 
-        // 2. Create the MASTER CLUSTER GROUP
-        // This will act as one single switch for all 44 state numbers
-        var allStateClusters = L.layerGroup([
+        // 2. Put every single cluster layer into one group
+        var clusterGroup = L.layerGroup([
             cluster_AlabamaSites_3, cluster_WashingtonSites_4, cluster_WestVirginiaSites_5, 
             cluster_WisconsinSites_6, cluster_WyomingSites_7, cluster_AlabamaSites_8, 
             cluster_ArkansasSites_9, cluster_ColoradoSites_10, cluster_ConnecticutSites_11, 
@@ -23,28 +22,38 @@
             cluster_TexasSites_42, cluster_UtahSites_43, cluster_VirginiaSites_44
         ]);
 
-        // 3. Define the visibility toggle function
-        function syncMapLayers() {
+        // 3. The "Master Switch" Function
+        function updateMapDisplay() {
             var zoom = map.getZoom();
             
-            // IF ZOOM IS 6 OR MORE (Close up): Show Dots, Hide Numbers
+            // Remove everything first to prevent the overlap you're seeing
+            map.removeLayer(clusterGroup);
+            map.removeLayer(layer_HistoricSites2025_for_QGIS_2);
+
+            // Now add back ONLY what we want based on zoom
             if (zoom >= 6) {
-                map.removeLayer(allStateClusters); 
-                map.addLayer(layer_HistoricSites2025_for_QGIS_2);
-            } 
-            // IF ZOOM IS LESS THAN 6 (National view): Hide Dots, Show Numbers
-            else {
-                map.removeLayer(layer_HistoricSites2025_for_QGIS_2);
-                map.addLayer(allStateClusters);
+                // Zoomed in: Show only the technical teal dots
+                layer_HistoricSites2025_for_QGIS_2.addTo(map);
+            } else {
+                // Zoomed out: Show only the national cluster numbers
+                clusterGroup.addTo(map);
             }
         }
 
-        // 4. Attach to map events
-        map.on('zoomend', syncMapLayers);
-        syncMapLayers(); // Run once at start to set initial view
+        // 4. Trigger the switch whenever the user zooms
+        map.on('zoomend', updateMapDisplay);
+        
+        // 5. Run it once immediately so the page loads correctly
+        updateMapDisplay();
 
-        // 5. Add Base Satellite Layer
+        // 6. Load Background Satellite Imagery
         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
             attribution: 'Esri',
             maxZoom: 18
         }).addTo(map);
+
+        // Standard Label Handling (States names)
+        layer_cb_2024_us_state_500k_1.eachLayer(function(layer) {
+            layer.bindTooltip('<div style="color: #000; font-size: 8pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['NAME'] + '</div>', 
+            {permanent: true, offset: [0, -16], className: 'css_cb_2024_us_state_500k_1'}).addTo(map);
+        });

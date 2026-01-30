@@ -85,9 +85,7 @@
         <script src="data/UtahSites_43.js"></script>
         <script src="data/VirginiaSites_44.js"></script>
         <script>
-        var map = L.map('map', {
-            zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-13.850451620142621,-175.38285872807276],[97.36097303444058,10.291867651753108]]);
+		var map = L.map('map', {zoomControl:false, maxZoom:28, minZoom:3,maxBounds: [[24.39, -124.84], [49.38, -66.93]] // Restricts view to USA}).setView([39.8283, -98.5795], 4);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});

@@ -1,21 +1,24 @@
-// 1. Map Initialization
+<body>
+    <div id="map"></div>
+
+    <script src="data/cb_2024_us_state_500k_1.js"></script>
+    <script src="data/HistoricSites2025_for_QGIS_2.js"></script>
+    <script>
+        // PASTE THE MAP INITIALIZATION CODE HERE
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:3,
             maxBounds: [[24.39, -124.84], [49.38, -66.93]] 
         }).setView([37.8, -96], 4);
 
-        // 2. Base Satellite Layer
         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
             attribution: 'Esri',
             maxZoom: 18
         }).addTo(map);
 
-        // 3. MASTER TOGGLE FUNCTION
-        // We wrap this in a check to prevent "undefined" errors
         function updateMapVisibility() {
             var zoom = map.getZoom();
             
-            // Define your groups inside the function to ensure variables are recognized
+            // MASTER CLUSTER GROUP
             var clusterGroup = L.layerGroup([
                 cluster_AlabamaSites_3, cluster_WashingtonSites_4, cluster_WestVirginiaSites_5, 
                 cluster_WisconsinSites_6, cluster_WyomingSites_7, cluster_AlabamaSites_8, 
@@ -33,13 +36,11 @@
                 cluster_TexasSites_42, cluster_UtahSites_43, cluster_VirginiaSites_44
             ]);
 
-            // FIRST: Wipe everything clean
             map.removeLayer(clusterGroup);
             if(window.layer_HistoricSites2025_for_QGIS_2) {
                 map.removeLayer(layer_HistoricSites2025_for_QGIS_2);
             }
 
-            // SECOND: Add only the correct layer
             if (zoom >= 6) {
                 layer_HistoricSites2025_for_QGIS_2.addTo(map);
             } else {
@@ -47,10 +48,11 @@
             }
         }
 
-        // 4. WAIT FOR DATA: This is the critical fix for the white box
         window.addEventListener('load', function() {
             setTimeout(function() {
                 updateMapVisibility();
                 map.on('zoomend', updateMapVisibility);
-            }, 500); // 0.5 second delay to let scripts settle
+            }, 500);
         });
+    </script>
+</body>

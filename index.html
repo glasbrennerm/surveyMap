@@ -10,12 +10,7 @@
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
         <style>
-            html, body, #map {
-                width: 100%;
-                height: 100%;
-                padding: 0;
-                margin: 0;
-            }
+            html, body, #map { width: 100%; height: 100%; padding: 0; margin: 0; background: #fff; }
         </style>
         <title>Geomorphic Solutions Survey Portfolio</title>
     </head>
@@ -74,60 +69,64 @@
         <script src="data/VirginiaSites_44.js"></script>
 
         <script>
-            // Initialize map with a broad USA view
+            // Initialize map
             var map = L.map('map', {
-                zoomControl:false, maxZoom:28, minZoom:3,
+                zoomControl: true, maxZoom: 28, minZoom: 3,
                 maxBounds: [[24.39, -124.84], [49.38, -66.93]] 
-            }).setView([39.8283, -98.5795], 4);
+            }).setView([39.82, -98.57], 4);
 
-            // Add Satellite Base Layer
             L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-                attribution: 'Esri',
-                maxZoom: 18
+                attribution: 'Esri', maxZoom: 18
             }).addTo(map);
 
-            // Define the logic that prevents the overlap
             function updateVisibility() {
                 var zoom = map.getZoom();
                 
-                // Group all cluster layers into one toggle switch
-                var clusterGroup = L.layerGroup([
-                    cluster_AlabamaSites_3, cluster_WashingtonSites_4, cluster_WestVirginiaSites_5, 
-                    cluster_WisconsinSites_6, cluster_WyomingSites_7, cluster_AlabamaSites_8, 
-                    cluster_ArkansasSites_9, cluster_ColoradoSites_10, cluster_ConnecticutSites_11, 
-                    cluster_DelawareSites_12, cluster_FloridaSites_13, cluster_GeorgiaSites_14, 
-                    cluster_IdahoSites_15, cluster_CaliforniaSites_16, cluster_IllinoisSites_17, 
-                    cluster_IndianaSites_18, cluster_IowaSites_19, cluster_KansasSites_20, 
-                    cluster_KentuckySites_21, cluster_LouisianaSites_22, cluster_MaineSites_23, 
-                    cluster_MarylandSites_24, cluster_MichiganSites_25, cluster_MinnesotaSites_26, 
-                    cluster_MississippiSites_27, cluster_MissouriSites_28, cluster_MontanaSites_29, 
-                    cluster_NebraskaSites_30, cluster_NewJerseySites_31, cluster_NewMexicoSites_32, 
-                    cluster_NewYorkSites_33, cluster_NorthCarolinaSites_34, cluster_NorthDakotaSites_35, 
-                    cluster_OhioSites_36, cluster_OklahomaSites_37, cluster_OregonSites_38, 
-                    cluster_PennsylvaniaSites_39, cluster_SouthCarolinaSites_40, cluster_TennesseeSites_41, 
-                    cluster_TexasSites_42, cluster_UtahSites_43, cluster_VirginiaSites_44
-                ]);
+                // Collect only the clusters that actually loaded successfully
+                var activeClusters = [];
+                var clusterVars = [
+                    'cluster_AlabamaSites_3', 'cluster_WashingtonSites_4', 'cluster_WestVirginiaSites_5', 
+                    'cluster_WisconsinSites_6', 'cluster_WyomingSites_7', 'cluster_AlabamaSites_8', 
+                    'cluster_ArkansasSites_9', 'cluster_ColoradoSites_10', 'cluster_ConnecticutSites_11', 
+                    'cluster_DelawareSites_12', 'cluster_FloridaSites_13', 'cluster_GeorgiaSites_14', 
+                    'cluster_IdahoSites_15', 'cluster_CaliforniaSites_16', 'cluster_IllinoisSites_17', 
+                    'cluster_IndianaSites_18', 'cluster_IowaSites_19', 'cluster_KansasSites_20', 
+                    'cluster_KentuckySites_21', 'cluster_LouisianaSites_22', 'cluster_MaineSites_23', 
+                    'cluster_MarylandSites_24', 'cluster_MichiganSites_25', 'cluster_MinnesotaSites_26', 
+                    'cluster_MississippiSites_27', 'cluster_MissouriSites_28', 'cluster_MontanaSites_29', 
+                    'cluster_NebraskaSites_30', 'cluster_NewJerseySites_31', 'cluster_NewMexicoSites_32', 
+                    'cluster_NewYorkSites_33', 'cluster_NorthCarolinaSites_34', 'cluster_NorthDakotaSites_35', 
+                    'cluster_OhioSites_36', 'cluster_OklahomaSites_37', 'cluster_OregonSites_38', 
+                    'cluster_PennsylvaniaSites_39', 'cluster_SouthCarolinaSites_40', 'cluster_TennesseeSites_41', 
+                    'cluster_TexasSites_42', 'cluster_UtahSites_43', 'cluster_VirginiaSites_44'
+                ];
 
-                // Clear the slate first to stop the overlap
+                clusterVars.forEach(function(v) {
+                    if (window[v]) activeClusters.push(window[v]);
+                });
+
+                var clusterGroup = L.layerGroup(activeClusters);
+
+                // WIPE CLEAN
                 map.removeLayer(clusterGroup);
                 if (window.layer_HistoricSites2025_for_QGIS_2) {
                     map.removeLayer(layer_HistoricSites2025_for_QGIS_2);
                 }
 
-                // Decide what to show based on zoom level 6
+                // SWITCH AT ZOOM 6
                 if (zoom >= 6) {
-                    layer_HistoricSites2025_for_QGIS_2.addTo(map);
+                    if (window.layer_HistoricSites2025_for_QGIS_2) layer_HistoricSites2025_for_QGIS_2.addTo(map);
                 } else {
                     clusterGroup.addTo(map);
                 }
             }
 
-            // Ensure scripts are fully loaded before firing map logic
+            // Fire after scripts settle
             window.onload = function() {
                 setTimeout(function() {
                     updateVisibility();
                     map.on('zoomend', updateVisibility);
-                }, 500); 
+                }, 1000); 
             };
         </script>
     </body>

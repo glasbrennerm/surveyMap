@@ -1,18 +1,12 @@
-var map = L.map('map', {
+// 1. Initialize Map
+        var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:3, 
             maxBounds: [[24.39, -124.84], [49.38, -66.93]] 
         }).setView([39.8283, -98.5795], 4);
 
-        var hash = new L.Hash(map);
-        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
-        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
-
-        // Define the transition point
-        var transitionZoom = 6;
-
-        // Group your layers for easy management
-        var individualDots = [layer_HistoricSites2025_for_QGIS_2];
-        var stateClusters = [
+        // 2. Create the MASTER CLUSTER GROUP
+        // This will act as one single switch for all 44 state numbers
+        var allStateClusters = L.layerGroup([
             cluster_AlabamaSites_3, cluster_WashingtonSites_4, cluster_WestVirginiaSites_5, 
             cluster_WisconsinSites_6, cluster_WyomingSites_7, cluster_AlabamaSites_8, 
             cluster_ArkansasSites_9, cluster_ColoradoSites_10, cluster_ConnecticutSites_11, 
@@ -27,45 +21,30 @@ var map = L.map('map', {
             cluster_OhioSites_36, cluster_OklahomaSites_37, cluster_OregonSites_38, 
             cluster_PennsylvaniaSites_39, cluster_SouthCarolinaSites_40, cluster_TennesseeSites_41, 
             cluster_TexasSites_42, cluster_UtahSites_43, cluster_VirginiaSites_44
-        ];
+        ]);
 
-        function updateVisibility() {
+        // 3. Define the visibility toggle function
+        function syncMapLayers() {
             var zoom = map.getZoom();
             
-            // If zoomed in (6 or deeper): Show DOTS, Hide NUMBERS
-            if (zoom >= transitionZoom) {
-                stateClusters.forEach(function(l) { map.removeLayer(l); });
-                individualDots.forEach(function(l) { map.addLayer(l); });
+            // IF ZOOM IS 6 OR MORE (Close up): Show Dots, Hide Numbers
+            if (zoom >= 6) {
+                map.removeLayer(allStateClusters); 
+                map.addLayer(layer_HistoricSites2025_for_QGIS_2);
             } 
-            // If zoomed out (less than 6): Hide DOTS, Show NUMBERS
+            // IF ZOOM IS LESS THAN 6 (National view): Hide Dots, Show Numbers
             else {
-                individualDots.forEach(function(l) { map.removeLayer(l); });
-                stateClusters.forEach(function(l) { map.addLayer(l); });
+                map.removeLayer(layer_HistoricSites2025_for_QGIS_2);
+                map.addLayer(allStateClusters);
             }
         }
 
-        // Run visibility check on zoom and on initial load
-        map.on("zoomend", updateVisibility);
-        updateVisibility();
+        // 4. Attach to map events
+        map.on('zoomend', syncMapLayers);
+        syncMapLayers(); // Run once at start to set initial view
 
-        // Base Layer Setup
-        map.createPane('pane_EsriWorldIMagery_0');
-        map.getPane('pane_EsriWorldIMagery_0').style.zIndex = 400;
-        var layer_EsriWorldIMagery_0 = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-            pane: 'pane_EsriWorldIMagery_0',
-            opacity: 1.0,
-            minZoom: 1,
-            maxZoom: 28
+        // 5. Add Base Satellite Layer
+        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Esri',
+            maxZoom: 18
         }).addTo(map);
-
-        // Standard Label Handling
-        var i = 0;
-        layer_cb_2024_us_state_500k_1.eachLayer(function(layer) {
-            var labelContent = '<div style="color: #000; font-size: 8pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['NAME'] + '</div>';
-            layer.bindTooltip(labelContent, {permanent: true, offset: [-0, -16], className: 'css_cb_2024_us_state_500k_1'});
-            labels.push(layer);
-            i++;
-        });
-
-        resetLabels([layer_cb_2024_us_state_500k_1]);
-        map.on("zoomend", function(){ resetLabels([layer_cb_2024_us_state_500k_1]); });

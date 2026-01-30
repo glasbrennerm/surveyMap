@@ -84,7 +84,9 @@
         <script src="data/UtahSites_42.js"></script>
         <script src="data/VirginiaSites_43.js"></script>
         <script>
-	var map = L.map('map', {zoomControl:false, maxZoom:28, minZoom:1}).setView([39.8283, -98.5795], 4);
+        var map = L.map('map', {
+            zoomControl:false, maxZoom:28, minZoom:1
+        }).fitBounds([[-4.078328736939184,-184.00610119981147],[113.8027397122954,12.804030471954114]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -3233,425 +3235,425 @@
         bounds_group.addLayer(layer_VirginiaSites_43);
         cluster_VirginiaSites_43.addTo(map);
         map.on("zoomend", function(e) {
-            if (map.getZoom() <= 14 && map.getZoom() >= 7) {
+            if (map.getZoom() <= 14 && map.getZoom() >= 6) {
                 map.addLayer(layer_HistoricSites2025_for_QGIS_2);
-            } else if (map.getZoom() > 14 || map.getZoom() < 7) {
+            } else if (map.getZoom() > 14 || map.getZoom() < 6) {
                 map.removeLayer(layer_HistoricSites2025_for_QGIS_2);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_AlabamaSites_3);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_AlabamaSites_3);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_WashingtonSites_4);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_WashingtonSites_4);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_WestVirginiaSites_5);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_WestVirginiaSites_5);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_WisconsinSites_6);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_WisconsinSites_6);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_WyomingSites_7);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_WyomingSites_7);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_AlabamaSites_8);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_AlabamaSites_8);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_ArkansasSites_9);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_ArkansasSites_9);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_ColoradoSites_10);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_ColoradoSites_10);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_ConnecticutSites_11);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_ConnecticutSites_11);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_DelawareSites_12);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_DelawareSites_12);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_FloridaSites_13);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_FloridaSites_13);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_GeorgiaSites_14);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_GeorgiaSites_14);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_IdahoSites_15);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_IdahoSites_15);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_IllinoisSites_16);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_IllinoisSites_16);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_IndianaSites_17);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_IndianaSites_17);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_IowaSites_18);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_IowaSites_18);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_KansasSites_19);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_KansasSites_19);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_KentuckySites_20);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_KentuckySites_20);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_LouisianaSites_21);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_LouisianaSites_21);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_MaineSites_22);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_MaineSites_22);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_MarylandSites_23);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_MarylandSites_23);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_MichiganSites_24);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_MichiganSites_24);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_MinnesotaSites_25);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_MinnesotaSites_25);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_MississippiSites_26);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_MississippiSites_26);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_MissouriSites_27);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_MissouriSites_27);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_MontanaSites_28);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_MontanaSites_28);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_NebraskaSites_29);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_NebraskaSites_29);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_NewJerseySites_30);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_NewJerseySites_30);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_NewMexicoSites_31);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_NewMexicoSites_31);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_NewYorkSites_32);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_NewYorkSites_32);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_NorthCarolinaSites_33);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_NorthCarolinaSites_33);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_NorthDakotaSites_34);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_NorthDakotaSites_34);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_OhioSites_35);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_OhioSites_35);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_OklahomaSites_36);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_OklahomaSites_36);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_OregonSites_37);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_OregonSites_37);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_PennsylvaniaSites_38);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_PennsylvaniaSites_38);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_SouthCarolinaSites_39);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_SouthCarolinaSites_39);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_TennesseeSites_40);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_TennesseeSites_40);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_TexasSites_41);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_TexasSites_41);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_UtahSites_42);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_UtahSites_42);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_VirginiaSites_43);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_VirginiaSites_43);
             }
         });
-            if (map.getZoom() <= 14 && map.getZoom() >= 7) {
+            if (map.getZoom() <= 14 && map.getZoom() >= 6) {
                 map.addLayer(layer_HistoricSites2025_for_QGIS_2);
-            } else if (map.getZoom() > 14 || map.getZoom() < 7) {
+            } else if (map.getZoom() > 14 || map.getZoom() < 6) {
                 map.removeLayer(layer_HistoricSites2025_for_QGIS_2);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_AlabamaSites_3);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_AlabamaSites_3);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_WashingtonSites_4);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_WashingtonSites_4);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_WestVirginiaSites_5);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_WestVirginiaSites_5);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_WisconsinSites_6);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_WisconsinSites_6);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_WyomingSites_7);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_WyomingSites_7);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_AlabamaSites_8);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_AlabamaSites_8);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_ArkansasSites_9);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_ArkansasSites_9);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_ColoradoSites_10);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_ColoradoSites_10);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_ConnecticutSites_11);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_ConnecticutSites_11);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_DelawareSites_12);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_DelawareSites_12);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_FloridaSites_13);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_FloridaSites_13);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_GeorgiaSites_14);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_GeorgiaSites_14);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_IdahoSites_15);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_IdahoSites_15);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_IllinoisSites_16);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_IllinoisSites_16);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_IndianaSites_17);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_IndianaSites_17);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_IowaSites_18);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_IowaSites_18);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_KansasSites_19);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_KansasSites_19);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_KentuckySites_20);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_KentuckySites_20);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_LouisianaSites_21);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_LouisianaSites_21);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_MaineSites_22);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_MaineSites_22);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_MarylandSites_23);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_MarylandSites_23);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_MichiganSites_24);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_MichiganSites_24);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_MinnesotaSites_25);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_MinnesotaSites_25);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_MississippiSites_26);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_MississippiSites_26);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_MissouriSites_27);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_MissouriSites_27);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_MontanaSites_28);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_MontanaSites_28);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_NebraskaSites_29);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_NebraskaSites_29);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_NewJerseySites_30);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_NewJerseySites_30);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_NewMexicoSites_31);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_NewMexicoSites_31);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_NewYorkSites_32);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_NewYorkSites_32);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_NorthCarolinaSites_33);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_NorthCarolinaSites_33);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_NorthDakotaSites_34);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_NorthDakotaSites_34);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_OhioSites_35);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_OhioSites_35);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_OklahomaSites_36);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_OklahomaSites_36);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_OregonSites_37);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_OregonSites_37);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_PennsylvaniaSites_38);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_PennsylvaniaSites_38);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_SouthCarolinaSites_39);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_SouthCarolinaSites_39);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_TennesseeSites_40);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_TennesseeSites_40);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_TexasSites_41);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_TexasSites_41);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_UtahSites_42);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_UtahSites_42);
             }
-            if (map.getZoom() <= 7 && map.getZoom() >= 2) {
+            if (map.getZoom() <= 6 && map.getZoom() >= 2) {
                 map.addLayer(cluster_VirginiaSites_43);
-            } else if (map.getZoom() > 7 || map.getZoom() < 2) {
+            } else if (map.getZoom() > 6 || map.getZoom() < 2) {
                 map.removeLayer(cluster_VirginiaSites_43);
             }
         map.on("zoomend", function(){
